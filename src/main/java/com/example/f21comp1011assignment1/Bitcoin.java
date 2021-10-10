@@ -1,5 +1,6 @@
 package com.example.f21comp1011assignment1;
 
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -9,17 +10,20 @@ import java.time.format.ResolverStyle;
 public class Bitcoin {
     //declare instance variables
     private int id; //primary key
-    private LocalDate dateBTC;
+    private Date dateBTC;
     private double openPrice;
     private double highPrice;
     private double lowPrice;
     private double closePrice;
     private double adjClosePrice;
-    private long volume;
+    private double volume;
+    //The table view has Year and Month column
+    private int year;
+    private int month;
+
 
     //Declare a constructor
-    public Bitcoin(LocalDate dateBTC, double openPrice, double highPrice, double lowPrice, double closePrice, double adjClosePrice, long volume) {
-        setDateBTC(dateBTC);
+    public Bitcoin(double openPrice, double highPrice, double lowPrice, double closePrice, double adjClosePrice, double volume) {
         setOpenPrice(openPrice);
         setHighPrice(highPrice);
         setLowPrice(lowPrice);
@@ -27,9 +31,46 @@ public class Bitcoin {
         setAdjClosePrice(adjClosePrice);
         setVolume(volume);
         id = 0;
+        year = 0;
+        month = 0;
+    }
+
+    //Constructor overloading
+    public Bitcoin(Date dateBTC, double openPrice, double highPrice, double lowPrice, double closePrice, double adjClosePrice, double volume) {
+        this(openPrice, highPrice, lowPrice, closePrice, adjClosePrice, volume);
+        setDateBTC(dateBTC);
+        id = 0;
+        year = 0;
+        month = 0;
     }
 
     //Setters and Getters
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        if (year >= 2014){
+            this.year = year;
+        }
+        else {
+            throw new IllegalArgumentException("The year should >= 2014");
+        }
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        if (1 <= month && month <= 12){
+            this.month = month;
+        }
+        else {
+            throw new IllegalArgumentException("The month must between 1 and 12");
+        }
+    }
+
     public int getId() {
         return id;
     }
@@ -43,11 +84,11 @@ public class Bitcoin {
         }
     }
 
-    public LocalDate getDateBTC() {
+    public Date getDateBTC() {
         return dateBTC;
     }
 
-    public void setDateBTC(LocalDate dateBTC) {
+    public void setDateBTC(Date dateBTC) {
         if (dateBTC != null){
             this.dateBTC = dateBTC;
         }
@@ -122,11 +163,11 @@ public class Bitcoin {
         }
     }
 
-    public long getVolume() {
+    public double getVolume() {
         return volume;
     }
 
-    public void setVolume(long volume) {
+    public void setVolume(double volume) {
         if (volume > 0){
             this.volume = volume;
         }

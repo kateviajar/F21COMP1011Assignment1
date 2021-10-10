@@ -1,0 +1,16 @@
+.root{
+    -fx-background-color: #212121;
+    -fx-font-family: Arial;
+    -fx-font-size: 15px;
+}
+
+#header{
+    -fx-font-size: 50px;
+    -fx-text-fill: #F5F5F5;
+}
+
+#button{
+    -fx-background-color: #009688;
+    -fx-text-fill: #F5F5F5;
+    -fx-font-size: 20px;
+}
