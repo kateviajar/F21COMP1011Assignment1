@@ -31,3 +31,35 @@
     -fx-font-weight: bold;
     -fx-font-size: 15px;
 }
+
+/*change the line chart color, width and legend color*/
+.default-color0.chart-series-line{
+    -fx-stroke: #689F38;
+    -fx-stroke-width: 5px;
+}
+
+.default-color0.chart-line-symbol{
+    -fx-background-color: #689F38;
+}
+
+.default-color1.chart-series-line{
+    -fx-stroke: #e9967a;
+    -fx-stroke-width: 3px;
+}
+
+.default-color1.chart-line-symbol {
+    -fx-background-color: #e9967a;
+}
+
+.chart-legend{
+    -fx-background-color: transparent;
+    -fx-text-fill: #F5F5F5;
+}
+
+.chart-legend-item-symbol{
+    -fx-background-radius: 0;
+}
+
+.chart-legend-item{
+    -fx-text-fill: #F5F5F5;
+}

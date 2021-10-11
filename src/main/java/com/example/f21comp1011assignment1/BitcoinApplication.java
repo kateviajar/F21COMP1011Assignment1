@@ -10,7 +10,7 @@ import java.io.IOException;
 public class BitcoinApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(BitcoinApplication.class.getResource("bitcoin_volume_view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(BitcoinApplication.class.getResource("bitcoin_price_view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Bitcoin");
         stage.setScene(scene);

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011assignment1.BitcoinPriceViewController">
+   <children>
+      <BorderPane prefHeight="800.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="20.0" top="20.0" />
+         </padding>
+         <bottom>
+            <Button id="button" fx:id="backButton" mnemonicParsing="false" text="Back" BorderPane.alignment="CENTER" />
+         </bottom>
+         <top>
+            <Label id="header" text="Monthly Bitcoin Price 2020-2021" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <LineChart fx:id="lineChart" BorderPane.alignment="CENTER">
+              <xAxis>
+                <CategoryAxis fx:id="monthAxis" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="priceAxis" side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
