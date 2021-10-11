@@ -1,6 +1,7 @@
 package Utilities;
 
 import com.example.f21comp1011assignment1.Bitcoin;
+import javafx.scene.chart.XYChart;
 
 import java.sql.*;
 import java.text.DecimalFormat;
@@ -60,4 +61,39 @@ public class DBUtility {
 
         return bitcoins;
     }
+
+    /**
+     * This method collects data from DB and return as XYChart.Series<Integer, Double> type data
+     */
+    public static XYChart.Series<String, Double> getAvgVolumeByYear(){
+        XYChart.Series<String, Double> avgVolumeData = new XYChart.Series<>();
+
+        //add SQL query
+        String sql = "Select Year(dateBTC) AS 'Year', AVG(volume)/1000000 AS 'AVG Volume(M)' \n" +
+                "From bitcoin\n" +
+                "GROUP BY Year(dateBTC)\n" +
+                "ORDER BY Year(dateBTC);";
+
+        try(
+                Connection conn = DriverManager.getConnection(connectURL, user, pw);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        ){
+            while (resultSet.next()){
+                // set formatter for double values
+                DecimalFormat decimalFormat = new DecimalFormat("#.####");
+
+                String year = resultSet.getString("Year");
+                double volume = Double.parseDouble(decimalFormat.format(resultSet.getDouble("AVG Volume(M)")));
+
+                avgVolumeData.getData().add(new XYChart.Data<>(year, volume));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return avgVolumeData;
+    }
+
 }

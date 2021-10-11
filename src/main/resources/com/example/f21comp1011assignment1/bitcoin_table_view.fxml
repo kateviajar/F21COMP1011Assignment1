@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
 
 <AnchorPane prefHeight="800.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011assignment1.BitcoinTableViewController">
@@ -29,7 +30,12 @@
             </TableView>
          </center>
          <bottom>
-            <Button id="button" fx:id="chartViewButton" mnemonicParsing="false" text="Chart View" BorderPane.alignment="CENTER" />
+            <HBox alignment="CENTER" spacing="50.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button id="button" fx:id="priceChartButton" mnemonicParsing="false" text="Price Chart" />
+                  <Button id="button" fx:id="volumeChartButton" mnemonicParsing="false" text="Volume Chart" />
+               </children>
+            </HBox>
          </bottom>
          <top>
             <Label id="header" text="BTC - USD Price" BorderPane.alignment="CENTER" />

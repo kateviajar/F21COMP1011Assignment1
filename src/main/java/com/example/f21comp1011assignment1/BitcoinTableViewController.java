@@ -38,7 +38,10 @@ public class BitcoinTableViewController implements Initializable {
     private TableColumn<Bitcoin, Double> avgVolumeColumn;
 
     @FXML
-    private Button chartViewButton;
+    private Button priceChartButton;
+
+    @FXML
+    private Button volumeChartButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

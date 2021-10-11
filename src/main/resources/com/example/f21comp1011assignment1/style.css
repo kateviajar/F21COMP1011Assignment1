@@ -14,3 +14,20 @@
     -fx-text-fill: #F5F5F5;
     -fx-font-size: 20px;
 }
+
+/*change the bar chart color*/
+.default-color0.chart-bar{
+    -fx-bar-fill: #FF9800;
+}
+
+/*change the axis tick label color*/
+.axis{
+    -fx-tick-label-fill: #F5F5F5;
+}
+
+/*change the axis label color*/
+.axis-label{
+    -fx-text-fill: #F5F5F5;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
