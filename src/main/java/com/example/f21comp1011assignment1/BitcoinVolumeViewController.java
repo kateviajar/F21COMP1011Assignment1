@@ -1,6 +1,7 @@
 package com.example.f21comp1011assignment1;
 
 import Utilities.DBUtility;
+import Utilities.SceneChanger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,9 +33,6 @@ public class BitcoinVolumeViewController implements Initializable {
     @FXML
     private NumberAxis volumeAxis;
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,15 +46,10 @@ public class BitcoinVolumeViewController implements Initializable {
     }
 
     /**
-     * Create method to switch view to table view
+     * Use SceneChanger.changeScenes() method to switch view to table view
      */
     public void switchToTableView(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("bitcoin_Table_view.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Bitcoin");
-        stage.show();
+        SceneChanger.changeScenes(event, "bitcoin_Table_view.fxml", "Bitcoin");
     }
 }
 

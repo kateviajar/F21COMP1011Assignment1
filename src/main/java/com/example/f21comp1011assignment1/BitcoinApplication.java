@@ -14,6 +14,7 @@ public class BitcoinApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(BitcoinApplication.class.getResource("bitcoin_table_view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Bitcoin");
+        //set up the icon
         stage.getIcons().add(new Image("file:./bitcoin-icon.png"));
         stage.setScene(scene);
         stage.show();

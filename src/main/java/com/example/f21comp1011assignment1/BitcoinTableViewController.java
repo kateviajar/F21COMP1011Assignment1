@@ -1,6 +1,7 @@
 package com.example.f21comp1011assignment1;
 
 import Utilities.DBUtility;
+import Utilities.SceneChanger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,9 +51,9 @@ public class BitcoinTableViewController implements Initializable {
     @FXML
     private Button volumeChartButton;
 
-    private Stage stage;
+    /*private Stage stage;
     private Scene scene;
-    private Parent root;
+    private Parent root;*/
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -70,24 +71,20 @@ public class BitcoinTableViewController implements Initializable {
     }
 
     /**
-     * Create method to switch view to chart views
+     * Use SceneChanger.changeScenes() method to switch view to chart views
      */
     public void switchToPriceChart(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("bitcoin_price_view.fxml"));
+        SceneChanger.changeScenes(event, "bitcoin_price_view.fxml", "Bitcoin Price");
+        /*root = FXMLLoader.load(getClass().getResource("bitcoin_price_view.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Bitcoin Price");
-        stage.show();
+        stage.show();*/
     }
 
     public void switchToVolumeChart(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("bitcoin_volume_view.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Bitcoin Volume");
-        stage.show();
+        SceneChanger.changeScenes(event, "bitcoin_volume_view.fxml", "Bitcoin Volume");
     }
 }
 
