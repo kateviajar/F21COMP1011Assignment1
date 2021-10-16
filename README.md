@@ -1,8 +1,12 @@
 # JavaFX Project - BTC-USD Price Chart View (Assignment 1)
 
 ## Project Introduction
-This project uses the Bitcoin (BTC-USD) data to create two charts, line chart and bar chart.  
+This project uses the Bitcoin (BTC-USD) data to create two charts, line chart and bar chart.    
 The application will read data from MySQL DB.
+
+### Note:
+**I use MAMP to connect MySQL, the port number is 8889**.   
+In **DBUtility**, the ***connectURL = "jdbc:mysql://localhost:8889/javaProjects"***;  
 
 ## Application Structures
 It consists of 3 views, Bitcoin table view, Bitcoin price line chart, and Bitcoin volume bar chart.
