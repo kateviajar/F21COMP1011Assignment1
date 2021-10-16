@@ -97,41 +97,6 @@ public class DBUtility {
         return avgVolumeData;
     }
 
-    /**
-     * This method collects average open price data from DB and return as XYChart.Series<String, Double> type data
-     * Use data to create a line chart (it only displays the data in 2020 and 2021)
-     */
-    /*public static XYChart.Series<String, Double> getAvgOpenPriceByMonth(){
-        XYChart.Series<String, Double> avgOpenPriceData = new XYChart.Series<>();
-
-        //add SQL query
-        String sql = "Select Year(dateBTC), Month(dateBTC), CONCAT(Year(dateBTC), '-', Month(dateBTC)) AS 'Month', AVG(openPrice) AS 'AVG Open', \n" +
-                "AVG(closePrice) AS 'AVG Close' From bitcoin\n" +
-                "WHERE Year(dateBTC) >= 2020\n" +
-                "GROUP BY Year(dateBTC), Month(dateBTC), CONCAT(Year(dateBTC), '-', Month(dateBTC))\n" +
-                "ORDER BY Year(dateBTC), Month(dateBTC);";
-
-        try(
-                Connection conn = DriverManager.getConnection(connectURL, user, pw);
-                Statement statement = conn.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-        ){
-            while (resultSet.next()){
-                // set formatter for double values
-                DecimalFormat decimalFormat = new DecimalFormat("#.####");
-
-                String month = resultSet.getString("Month");
-                double openPrice = Double.parseDouble(decimalFormat.format(resultSet.getDouble("AVG Open")));
-
-                avgOpenPriceData.getData().add(new XYChart.Data<>(month, openPrice));
-            }
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
-        return  avgOpenPriceData;
-    }*/
 
     /**
      * This method collects average open price data from DB and return as XYChart.Series<String, Double> type data
@@ -173,41 +138,6 @@ public class DBUtility {
         return  avgOpenPriceData;
     }
 
-    /**
-     * This method collects average close price data from DB and return as XYChart.Series<String, Double> type data
-     * Use data to create a line chart
-     */
-   /* public static XYChart.Series<String, Double> getAvgClosePriceByMonth(){
-        XYChart.Series<String, Double> avgClosePriceData = new XYChart.Series<>();
-
-        //add SQL query
-        String sql = "Select Year(dateBTC), Month(dateBTC), CONCAT(Year(dateBTC), '-', Month(dateBTC)) AS 'Month', AVG(openPrice) AS 'AVG Open', \n" +
-                "AVG(closePrice) AS 'AVG Close' From bitcoin\n" +
-                "WHERE Year(dateBTC) >= 2020\n" +
-                "GROUP BY Year(dateBTC), Month(dateBTC), CONCAT(Year(dateBTC), '-', Month(dateBTC))\n" +
-                "ORDER BY Year(dateBTC), Month(dateBTC);";
-
-        try(
-                Connection conn = DriverManager.getConnection(connectURL, user, pw);
-                Statement statement = conn.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-        ){
-            while (resultSet.next()){
-                // set formatter for double values
-                DecimalFormat decimalFormat = new DecimalFormat("#.####");
-
-                String month = resultSet.getString("Month");
-                double closePrice = Double.parseDouble(decimalFormat.format(resultSet.getDouble("AVG Close")));
-
-                avgClosePriceData.getData().add(new XYChart.Data<>(month, closePrice));
-            }
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
-        return  avgClosePriceData;
-    }*/
 
     /**
      * This method collects average close price data from DB and return as XYChart.Series<String, Double> type data
