@@ -93,7 +93,7 @@ public class Bitcoin {
             this.dateBTC = dateBTC;
         }
         else{
-            throw new IllegalArgumentException("The date format must be yyyy-MM-dd and can't be empty");
+            throw new IllegalArgumentException("The date can't be empty");
         }
     }
 

@@ -9,6 +9,11 @@
     -fx-text-fill: #F5F5F5;
 }
 
+.label{
+    -fx-text-fill: #009688;
+    -fx-font-weight: bold;
+}
+
 .button{
     -fx-background-color: #009688;
     -fx-text-fill: #F5F5F5;
@@ -17,6 +22,12 @@
 
 .button:hover{
     -fx-background-color: #00BCD4;
+}
+
+/*change radioButtons label color*/
+.radio-button{
+    -fx-text-fill: #009688;
+    -fx-font-weight: bold;
 }
 
 /*change the bar chart color*/
@@ -52,6 +63,24 @@
 }
 
 .default-color1.chart-line-symbol {
+    -fx-background-color: #e9967a;
+}
+
+.default-color2.chart-series-line{
+    -fx-stroke: #689F38;
+    -fx-stroke-width: 5px;
+}
+
+.default-color2.chart-line-symbol{
+    -fx-background-color: #689F38;
+}
+
+.default-color3.chart-series-line{
+    -fx-stroke: #e9967a;
+    -fx-stroke-width: 3px;
+}
+
+.default-color3.chart-line-symbol {
     -fx-background-color: #e9967a;
 }
 

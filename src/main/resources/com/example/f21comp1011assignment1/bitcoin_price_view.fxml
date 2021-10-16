@@ -6,8 +6,11 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f21comp1011assignment1.BitcoinPriceViewController">
    <children>
@@ -19,7 +22,7 @@
             <Button id="button" fx:id="backButton" mnemonicParsing="false" onAction="#switchToTableView" text="Back" BorderPane.alignment="CENTER" />
          </bottom>
          <top>
-            <Label id="header" text="Monthly Bitcoin Price 2020-2021" BorderPane.alignment="CENTER" />
+            <Label id="header" text="Monthly Bitcoin Price" BorderPane.alignment="CENTER" />
          </top>
          <center>
             <LineChart fx:id="lineChart" BorderPane.alignment="CENTER">
@@ -31,6 +34,28 @@
               </yAxis>
             </LineChart>
          </center>
+         <right>
+            <VBox spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Year" />
+                  <RadioButton fx:id="radioButton14" mnemonicParsing="false" onAction="#changePriceChartByYear" text="2014">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="toggleGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="radioButton15" mnemonicParsing="false" onAction="#changePriceChartByYear" text="2015" toggleGroup="$toggleGroup" />
+                  <RadioButton fx:id="radioButton16" layoutX="10.0" layoutY="67.0" mnemonicParsing="false" onAction="#changePriceChartByYear" text="2016" toggleGroup="$toggleGroup" />
+                  <RadioButton fx:id="radioButton17" layoutX="10.0" layoutY="37.0" mnemonicParsing="false" onAction="#changePriceChartByYear" text="2017" toggleGroup="$toggleGroup" />
+                  <RadioButton fx:id="radioButton18" layoutX="10.0" layoutY="97.0" mnemonicParsing="false" onAction="#changePriceChartByYear" text="2018" toggleGroup="$toggleGroup" />
+                  <RadioButton fx:id="radioButton19" layoutX="10.0" layoutY="97.0" mnemonicParsing="false" onAction="#changePriceChartByYear" text="2019" toggleGroup="$toggleGroup" />
+                  <RadioButton fx:id="radioButton20" layoutX="10.0" layoutY="97.0" mnemonicParsing="false" onAction="#changePriceChartByYear" text="2020" toggleGroup="$toggleGroup" />
+                  <RadioButton fx:id="radioButton21" layoutX="10.0" layoutY="97.0" mnemonicParsing="false" onAction="#changePriceChartByYear" text="2021" toggleGroup="$toggleGroup" />
+               </children>
+               <BorderPane.margin>
+                  <Insets right="10.0" />
+               </BorderPane.margin>
+            </VBox>
+         </right>
       </BorderPane>
    </children>
 </AnchorPane>

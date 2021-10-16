@@ -2,22 +2,24 @@ package com.example.f21comp1011assignment1;
 
 import Utilities.DBUtility;
 import Utilities.SceneChanger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class BitcoinPriceViewController implements Initializable {
@@ -34,11 +36,49 @@ public class BitcoinPriceViewController implements Initializable {
     @FXML
     private NumberAxis priceAxis;
 
+    @FXML
+    private RadioButton radioButton14;
+
+    @FXML
+    private RadioButton radioButton15;
+
+    @FXML
+    private RadioButton radioButton16;
+
+    @FXML
+    private RadioButton radioButton17;
+
+    @FXML
+    private RadioButton radioButton18;
+
+    @FXML
+    private RadioButton radioButton19;
+
+    @FXML
+    private RadioButton radioButton20;
+
+    @FXML
+    private RadioButton radioButton21;
+
+    @FXML
+    private ToggleGroup toggleGroup;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //pre-select the year 2021 radioButton
+        radioButton21.setSelected(true);
+
+        //set categories of categoryAxis (auto-range issue)
+        ArrayList<String> yearMonth = new ArrayList<>();
+        for (int i = 1; i <= 12 ; i++) {
+            yearMonth.add("2021-"+i);
+        }
+        monthAxis.setCategories(FXCollections.observableArrayList(yearMonth));
+
         //get closePrice data from DB
-        XYChart.Series avgClosePrice = DBUtility.getAvgClosePriceByMonth();
-        XYChart.Series avgOpenPrice = DBUtility.getAvgOpenPriceByMonth();
+        XYChart.Series avgClosePrice = DBUtility.getAvgClosePriceByMonth(radioButton21.getText());
+        XYChart.Series avgOpenPrice = DBUtility.getAvgOpenPriceByMonth(radioButton21.getText());
 
         //set the series data name, it will show on the legend
         avgClosePrice.setName("Avg Close Price");
@@ -51,8 +91,48 @@ public class BitcoinPriceViewController implements Initializable {
     }
 
     /**
+     * This method checks which radioButton is selected and displayed the chart based on the selected radioButton
+     */
+    @FXML
+    public void changePriceChartByYear(){
+        lineChart.getData().clear(); // clear the line chart first
+
+        String year = new String();
+        ArrayList<String> yearMonth = new ArrayList<>(); //for setting categoryAxis (auto-rang issue)
+
+        ArrayList<RadioButton> radioButtons = new ArrayList<>();
+        radioButtons.addAll(Arrays.asList(radioButton14, radioButton15, radioButton16, radioButton17,
+                radioButton18, radioButton19, radioButton20, radioButton21));
+
+        //check which radioButton is selected
+        for (RadioButton radioButton : radioButtons){
+            if (radioButton.isSelected()){
+                year = radioButton.getText();
+            }
+        }
+
+        //set categories of categoryAxis
+        for (int i = 1; i <= 12 ; i++) {
+            yearMonth.add(year+"-"+i);
+        }
+        monthAxis.setCategories(FXCollections.observableArrayList(yearMonth));
+
+        //get closePrice data from DB
+        XYChart.Series avgClosePrice = DBUtility.getAvgClosePriceByMonth(year);
+        XYChart.Series avgOpenPrice = DBUtility.getAvgOpenPriceByMonth(year);
+
+        //set the series data name, it will show on the legend
+        avgClosePrice.setName("Avg Close Price");
+        avgOpenPrice.setName("Avg Open Price");
+
+        lineChart.getData().addAll(avgOpenPrice, avgClosePrice);
+    }
+
+
+    /**
      * Use SceneChanger.changeScenes() method to switch view to table view
      */
+    @FXML
     public void switchToTableView(ActionEvent event) throws IOException {
         SceneChanger.changeScenes(event, "bitcoin_Table_view.fxml", "Bitcoin");
     }
