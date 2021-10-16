@@ -142,10 +142,10 @@ public class DBUtility {
         XYChart.Series<String, Double> avgOpenPriceData = new XYChart.Series<>();
 
         //add SQL query
-        String sql = "Select Year(dateBTC), Month(dateBTC), CONCAT(Year(dateBTC), '-', Month(dateBTC)) AS 'Month', AVG(openPrice) AS 'AVG Open', \n" +
+        String sql = "Select Year(dateBTC), Month(dateBTC) AS 'Month', AVG(openPrice) AS 'AVG Open', \n" +
                 "AVG(closePrice) AS 'AVG Close' From bitcoin\n" +
                 "WHERE Year(dateBTC) IN (?) \n" +
-                "GROUP BY Year(dateBTC), Month(dateBTC), CONCAT(Year(dateBTC), '-', Month(dateBTC))\n" +
+                "GROUP BY Year(dateBTC), Month(dateBTC)\n" +
                 "ORDER BY Year(dateBTC), Month(dateBTC);";
 
         try(
@@ -218,10 +218,10 @@ public class DBUtility {
         XYChart.Series<String, Double> avgClosePriceData = new XYChart.Series<>();
 
         //add SQL query
-        String sql = "Select Year(dateBTC), Month(dateBTC), CONCAT(Year(dateBTC), '-', Month(dateBTC)) AS 'Month', AVG(openPrice) AS 'AVG Open', \n" +
+        String sql = "Select Year(dateBTC), Month(dateBTC) AS 'Month', AVG(openPrice) AS 'AVG Open', \n" +
                 "AVG(closePrice) AS 'AVG Close' From bitcoin\n" +
                 "WHERE Year(dateBTC) IN (?) \n" +
-                "GROUP BY Year(dateBTC), Month(dateBTC), CONCAT(Year(dateBTC), '-', Month(dateBTC))\n" +
+                "GROUP BY Year(dateBTC), Month(dateBTC)\n" +
                 "ORDER BY Year(dateBTC), Month(dateBTC);";
 
         try(

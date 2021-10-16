@@ -70,11 +70,11 @@ public class BitcoinPriceViewController implements Initializable {
         radioButton21.setSelected(true);
 
         //set categories of categoryAxis (auto-range issue)
-        ArrayList<String> yearMonth = new ArrayList<>();
+        ArrayList<String> monthCategories = new ArrayList<>();
         for (int i = 1; i <= 12 ; i++) {
-            yearMonth.add("2021-"+i);
+            monthCategories.add(Integer.toString(i));
         }
-        monthAxis.setCategories(FXCollections.observableArrayList(yearMonth));
+        monthAxis.setCategories(FXCollections.observableArrayList(monthCategories));
 
         //get closePrice data from DB
         XYChart.Series avgClosePrice = DBUtility.getAvgClosePriceByMonth(radioButton21.getText());
@@ -86,7 +86,7 @@ public class BitcoinPriceViewController implements Initializable {
 
         lineChart.getData().addAll(avgOpenPrice, avgClosePrice);
 
-        monthAxis.setLabel("Month");
+        monthAxis.setLabel("Month of 2021");
         priceAxis.setLabel("Average BTC-USD Price");
     }
 
@@ -97,9 +97,14 @@ public class BitcoinPriceViewController implements Initializable {
     public void changePriceChartByYear(){
         lineChart.getData().clear(); // clear the line chart first
 
-        String year = new String();
-        ArrayList<String> yearMonth = new ArrayList<>(); //for setting categoryAxis (auto-rang issue)
+        //set categories of categoryAxis (auto-range issue)
+        /*ArrayList<String> monthCategories = new ArrayList<>();
+        for (int i = 1; i <= 12 ; i++) {
+            monthCategories.add(Integer.toString(i));
+        }
+        monthAxis.setCategories(FXCollections.observableArrayList(monthCategories));*/
 
+        String year = new String();
         ArrayList<RadioButton> radioButtons = new ArrayList<>();
         radioButtons.addAll(Arrays.asList(radioButton14, radioButton15, radioButton16, radioButton17,
                 radioButton18, radioButton19, radioButton20, radioButton21));
@@ -111,11 +116,7 @@ public class BitcoinPriceViewController implements Initializable {
             }
         }
 
-        //set categories of categoryAxis
-        for (int i = 1; i <= 12 ; i++) {
-            yearMonth.add(year+"-"+i);
-        }
-        monthAxis.setCategories(FXCollections.observableArrayList(yearMonth));
+        monthAxis.setLabel("Month of "+year);
 
         //get closePrice data from DB
         XYChart.Series avgClosePrice = DBUtility.getAvgClosePriceByMonth(year);
