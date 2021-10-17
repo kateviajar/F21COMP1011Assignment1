@@ -15,6 +15,7 @@ public class DBUtility {
 
     /**
      * This method returns a list of Bitcoin objects
+     * for displaying monthly average price and volume from 2014-2021
      */
     public static ArrayList<Bitcoin> getBitcoinDetails(){
         ArrayList<Bitcoin> bitcoins = new ArrayList<>();
@@ -44,7 +45,7 @@ public class DBUtility {
                 double adjClosePrice = resultSet.getDouble("AVG Adj Close");
                 double volume = Double.parseDouble(decimalFormat.format(resultSet.getDouble("AVG Volume(M)")));
 
-
+                // instantiate a bitcoin object (skip the dateBTC, the table view is going to display monthly data)
                 Bitcoin bitcoin = new Bitcoin(openPrice, highPrice, lowPrice, closePrice, adjClosePrice, volume);
 
                 bitcoin.setYear(year);
@@ -64,7 +65,7 @@ public class DBUtility {
 
     /**
      * This method collects volume data from DB and return as XYChart.Series<String, Double> type data
-     * Use data to create a bar chart
+     * Use data to create a bar chart for displaying yearly average volume
      */
     public static XYChart.Series<String, Double> getAvgVolumeByYear(){
         XYChart.Series<String, Double> avgVolumeData = new XYChart.Series<>();
@@ -109,7 +110,7 @@ public class DBUtility {
         //add SQL query
         String sql = "Select Year(dateBTC), Month(dateBTC) AS 'Month', AVG(openPrice) AS 'AVG Open', \n" +
                 "AVG(closePrice) AS 'AVG Close' From bitcoin\n" +
-                "WHERE Year(dateBTC) IN (?) \n" +
+                "WHERE Year(dateBTC) = ? \n" +
                 "GROUP BY Year(dateBTC), Month(dateBTC)\n" +
                 "ORDER BY Year(dateBTC), Month(dateBTC);";
 
@@ -151,7 +152,7 @@ public class DBUtility {
         //add SQL query
         String sql = "Select Year(dateBTC), Month(dateBTC) AS 'Month', AVG(openPrice) AS 'AVG Open', \n" +
                 "AVG(closePrice) AS 'AVG Close' From bitcoin\n" +
-                "WHERE Year(dateBTC) IN (?) \n" +
+                "WHERE Year(dateBTC) = ? \n" +
                 "GROUP BY Year(dateBTC), Month(dateBTC)\n" +
                 "ORDER BY Year(dateBTC), Month(dateBTC);";
 

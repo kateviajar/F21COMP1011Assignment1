@@ -69,7 +69,7 @@ public class BitcoinPriceViewController implements Initializable {
         //pre-select the year 2021 radioButton
         radioButton21.setSelected(true);
 
-        //set categories of categoryAxis (auto-range issue)
+        //set categories of categoryAxis (axis auto-range issue - tick marks are not placed well)
         ArrayList<String> monthCategories = new ArrayList<>();
         for (int i = 1; i <= 12 ; i++) {
             monthCategories.add(Integer.toString(i));
@@ -96,13 +96,6 @@ public class BitcoinPriceViewController implements Initializable {
     @FXML
     private void changePriceChartByYear(){
         lineChart.getData().clear(); // clear the line chart first
-
-        //set categories of categoryAxis (auto-range issue)
-        /*ArrayList<String> monthCategories = new ArrayList<>();
-        for (int i = 1; i <= 12 ; i++) {
-            monthCategories.add(Integer.toString(i));
-        }
-        monthAxis.setCategories(FXCollections.observableArrayList(monthCategories));*/
 
         String year = new String();
         ArrayList<RadioButton> radioButtons = new ArrayList<>();

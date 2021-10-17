@@ -1,11 +1,6 @@
 package com.example.f21comp1011assignment1;
 
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.ResolverStyle;
 
 public class Bitcoin {
     //declare instance variables
