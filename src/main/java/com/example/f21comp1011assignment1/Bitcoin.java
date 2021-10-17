@@ -102,11 +102,11 @@ public class Bitcoin {
     }
 
     public void setOpenPrice(double openPrice) {
-        if (openPrice > 0){
+        if (openPrice >= 0){
             this.openPrice = openPrice;
         }
         else {
-            throw new IllegalArgumentException("openPrice must be greater than 0");
+            throw new IllegalArgumentException("openPrice must be greater than or equal to 0");
         }
     }
 
@@ -115,11 +115,11 @@ public class Bitcoin {
     }
 
     public void setHighPrice(double highPrice) {
-        if (highPrice > 0){
+        if (highPrice >= 0){
             this.highPrice = highPrice;
         }
         else {
-            throw new IllegalArgumentException("highPrice must be greater than 0");
+            throw new IllegalArgumentException("highPrice must be greater than or equal to 0");
         }
     }
 
@@ -128,11 +128,11 @@ public class Bitcoin {
     }
 
     public void setLowPrice(double lowPrice) {
-        if (lowPrice > 0){
+        if (lowPrice >= 0){
             this.lowPrice = lowPrice;
         }
         else {
-            throw new IllegalArgumentException("lowPrice must be greater than 0");
+            throw new IllegalArgumentException("lowPrice must be greater than or equal to 0");
         }
 
     }
@@ -142,11 +142,11 @@ public class Bitcoin {
     }
 
     public void setClosePrice(double closePrice) {
-        if (closePrice > 0){
+        if (closePrice >= 0){
             this.closePrice = closePrice;
         }
         else {
-            throw new IllegalArgumentException("closePrice must be greater than 0");
+            throw new IllegalArgumentException("closePrice must be greater than or equal to 0");
         }
     }
 
@@ -155,11 +155,11 @@ public class Bitcoin {
     }
 
     public void setAdjClosePrice(double adjClosePrice) {
-        if (adjClosePrice > 0){
+        if (adjClosePrice >= 0){
             this.adjClosePrice = adjClosePrice;
         }
         else {
-            throw new IllegalArgumentException("adjClosePrice must be greater than 0");
+            throw new IllegalArgumentException("adjClosePrice must be greater than or equal to 0");
         }
     }
 
@@ -168,11 +168,11 @@ public class Bitcoin {
     }
 
     public void setVolume(double volume) {
-        if (volume > 0){
+        if (volume >= 0){
             this.volume = volume;
         }
         else {
-            throw new IllegalArgumentException("volume must be greater than 0");
+            throw new IllegalArgumentException("volume must be greater than or equal to 0");
         }
     }
 
