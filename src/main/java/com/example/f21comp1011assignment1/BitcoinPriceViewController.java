@@ -94,7 +94,7 @@ public class BitcoinPriceViewController implements Initializable {
      * This method checks which radioButton is selected and displayed the chart based on the selected radioButton
      */
     @FXML
-    public void changePriceChartByYear(){
+    private void changePriceChartByYear(){
         lineChart.getData().clear(); // clear the line chart first
 
         //set categories of categoryAxis (auto-range issue)
@@ -134,7 +134,7 @@ public class BitcoinPriceViewController implements Initializable {
      * Use SceneChanger.changeScenes() method to switch view to table view
      */
     @FXML
-    public void switchToTableView(ActionEvent event) throws IOException {
+    private void switchToTableView(ActionEvent event) throws IOException {
         SceneChanger.changeScenes(event, "bitcoin_Table_view.fxml", "Bitcoin");
     }
 }

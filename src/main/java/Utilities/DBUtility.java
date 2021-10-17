@@ -117,6 +117,7 @@ public class DBUtility {
                 Connection conn = DriverManager.getConnection(connectURL, user, pw);
                 PreparedStatement ps = conn.prepareStatement(sql);
         ){
+            //set the parameter
             ps.setString(1, year);
 
             ResultSet resultSet = ps.executeQuery();
@@ -158,6 +159,7 @@ public class DBUtility {
                 Connection conn = DriverManager.getConnection(connectURL, user, pw);
                 PreparedStatement ps = conn.prepareStatement(sql);
         ){
+            //set the parameter
             ps.setString(1, year);
 
             ResultSet resultSet = ps.executeQuery();

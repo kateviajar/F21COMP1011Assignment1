@@ -49,7 +49,7 @@ public class BitcoinVolumeViewController implements Initializable {
      * Use SceneChanger.changeScenes() method to switch view to table view
      */
     @FXML
-    public void switchToTableView(ActionEvent event) throws IOException {
+    private void switchToTableView(ActionEvent event) throws IOException {
         SceneChanger.changeScenes(event, "bitcoin_Table_view.fxml", "Bitcoin");
     }
 }

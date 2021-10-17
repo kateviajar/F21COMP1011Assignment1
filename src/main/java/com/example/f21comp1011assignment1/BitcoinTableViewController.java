@@ -66,12 +66,12 @@ public class BitcoinTableViewController implements Initializable {
      * Use SceneChanger.changeScenes() method to switch view to chart views
      */
     @FXML
-    public void switchToPriceChart(ActionEvent event) throws IOException {
+    private void switchToPriceChart(ActionEvent event) throws IOException {
         SceneChanger.changeScenes(event, "bitcoin_price_view.fxml", "Bitcoin Price");
     }
 
     @FXML
-    public void switchToVolumeChart(ActionEvent event) throws IOException{
+    private void switchToVolumeChart(ActionEvent event) throws IOException{
         SceneChanger.changeScenes(event, "bitcoin_volume_view.fxml", "Bitcoin Volume");
     }
 }
