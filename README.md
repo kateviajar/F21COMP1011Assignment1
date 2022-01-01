@@ -13,16 +13,19 @@ It consists of 3 views, Bitcoin table view, Bitcoin price line chart, and Bitcoi
 
 ### Bitcoin table view
 It is the start view of the application to show all the data in the table.  
-There are two buttons on the bottom that users can choose to see the price chart or volume chart.
+There are two buttons on the bottom that users can choose to see the price chart or volume chart.    
+<img width="500" alt="app1" src="https://user-images.githubusercontent.com/78240130/147860160-2239a7be-1d43-4517-a65c-2d646635fdca.png">
 
 ### Bitcoin price line chart
 In this view, the line chart pre-loads the 2021 bitcoin price data.  
 It has two lines of monthly average open price and monthly average close price.  
 Users can choose different year's data by selecting the radio button on the right side.  
-The price line chart will change dynamically based on the year selected.
+The price line chart will change dynamically based on the year selected.   
+<img width="500" alt="app2" src="https://user-images.githubusercontent.com/78240130/147860173-64a5c8bf-e4fe-46a3-8dcc-6a7a94bca4db.png">
 
 ### Bitcoin volume bar chart
-This bar chart shows the average trading volume by year.
+This bar chart shows the average trading volume by year.   
+<img width="500" alt="app3" src="https://user-images.githubusercontent.com/78240130/147860181-3b8007dc-b5ef-428f-9c6a-f997ac54e8a6.png">
 
 ## Data Source
 This data is from [kaggle Bitcoin data](https://www.kaggle.com/varpit94/bitcoin-data-updated-till-26jun2021).  
