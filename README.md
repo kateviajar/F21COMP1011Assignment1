@@ -1,4 +1,4 @@
-# JavaFX Project - BTC-USD Price Chart View (Assignment 1)
+# JavaFX Project - BTC-USD Price Application
 
 ## Project Introduction
 This project uses the Bitcoin (BTC-USD) data to create two charts, line chart and bar chart.    
